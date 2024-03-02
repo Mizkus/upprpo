@@ -1,6 +1,5 @@
 enable_testing()
 
-add_subdirectory(../googletest)
 
 add_executable(test test.cpp)
 
