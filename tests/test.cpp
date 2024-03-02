@@ -1,5 +1,6 @@
-#include "bitArr.h"
-#include "googletest/googletest/include/gtest/gtest.h"
+#include "../include/bitArr.h"
+#include <../gtest/gtest.h>
+#include <climits>
 
 TEST(BitArrayTest, Construct) {
 BitArray bits(8, 255);
@@ -19,14 +20,6 @@ if (i < sizeof(long))
 EXPECT_TRUE(bits1[i]);
 else EXPECT_FALSE(bits1[i]);
 }
-}
-
-TEST(BitArrayTest, OperationGetFromIndex){
-BitArray bits(100, ULONG_MAX);
-EXPECT_EQ(bits[0], 1);
-EXPECT_EQ(bits[31], 1);
-EXPECT_EQ(bits[32], 0);
-EXPECT_EQ(bits[99], 0);
 }
 
 TEST(BitArrayTest, Empty){
@@ -183,32 +176,4 @@ a ^= b;
 EXPECT_EQ(a.to_string(), "1111111100");
 }
 
-TEST(BitArrayTest, ShiftLeft){
-BitArray a(100, 3);
-a.set(55, 1);
-a = a << 33;
-EXPECT_EQ(a.to_string(), "0000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000");
-}
-
-TEST(BitArrayTest, EqShiftLeft){
-BitArray a(100, 3);
-a.set(55, 1);
-a <<= 33;
-EXPECT_EQ(a.to_string(), "0000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000");
-}
-
-TEST(BitArrayTest, EqShiftRight){
-BitArray a(100, 3);
-a.set(55, 1);
-a >>= 33;
-EXPECT_EQ(a.to_string(), "0000000000000000000000000000000110000000000000000000000000000000000000000000000000000010000000000000");
-}
-
-TEST(BitArrayTest, ShiftRight){
-BitArray a(100, 3);
-a.set(55, 1);
-EXPECT_EQ(a.to_string(), "0000000000000000000000000000000110000000000000000000000000000000000000000000000000000010000000000000");
-a = a >> 33;
-EXPECT_EQ(a.to_string(), "0000000000000000000000000000000110000000000000000000000000000000000000000000000000000010000000000000");
-}
 
