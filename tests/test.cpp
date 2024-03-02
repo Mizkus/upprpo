@@ -1,5 +1,5 @@
 #include "../include/bitArr.h"
-#include <../gtest/gtest.h>
+#include <gtest/gtest.h>
 #include <climits>
 
 TEST(BitArrayTest, Construct) {
