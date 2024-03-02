@@ -1,6 +1,7 @@
-#include "../include/bitArr.h"
 #include <gtest/gtest.h>
 #include <climits>
+#include "../include/bitArr.h"
+
 
 TEST(BitArrayTest, Construct) {
 BitArray bits(8, 255);
